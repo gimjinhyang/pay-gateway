@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import pay.gateway.properties.TokenProperties;
 import pay.gateway.thirdparty.token.request.TokenRequest;
 import pay.gateway.thirdparty.token.response.TokenResponse;
@@ -16,6 +17,7 @@ import pay.gateway.thirdparty.token.response.TokenResponse;
  *
  * @author Jinhyang
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class TokenService {
@@ -31,9 +33,10 @@ public class TokenService {
   public String entry(TokenRequest param) {
 
     final String uri = makeUri();
-    final RestClient restClient = RestClient.create();
+    log.debug("Verify URI: {}", uri);
 
-    // 카드 등록 요청
+    // 토큰 발급 요청
+    final RestClient restClient = RestClient.create();
     final ResponseEntity<TokenResponse> response = restClient.post()
                                                              .uri(uri)
                                                              .contentType(MediaType.APPLICATION_JSON)

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import pay.gateway.properties.TokenProperties;
 import pay.gateway.thirdparty.token.request.CardRequest;
 import pay.gateway.thirdparty.token.response.CardResponse;
@@ -16,6 +17,7 @@ import pay.gateway.thirdparty.token.response.CardResponse;
  *
  * @author Jinhyang
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class CardService {
@@ -31,9 +33,10 @@ public class CardService {
   public Long entry(CardRequest param) {
 
     final String uri = makeUri();
-    final RestClient restClient = RestClient.create();
+    log.debug("Verify URI: {}", uri);
 
     // 카드 등록 요청
+    final RestClient restClient = RestClient.create();
     final ResponseEntity<CardResponse> response = restClient.post()
                                                             .uri(uri)
                                                             .contentType(MediaType.APPLICATION_JSON)

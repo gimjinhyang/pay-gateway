@@ -1,0 +1,3 @@
+approval:
+  url: http://localhost:1003
+  api-approval: /api/approval
