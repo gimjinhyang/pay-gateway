@@ -19,32 +19,32 @@ import lombok.ToString;
 @JsonPropertyOrder({"status", "message", "data"})
 public class DataResponse extends AbstractEntity {
 
-    @Serial
-    private static final long serialVersionUID = -342444435031151223L;
+  @Serial
+  private static final long serialVersionUID = -2805535386429645972L;
 
-    /**
-     * 데이터
-     */
-    private Object data;
+  /**
+   * 데이터
+   */
+  private Object data;
 
-    // ////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Constructors
-    //
-    // ////////////////////////////////////////////////////////////////////////////////////
-    public DataResponse(int status, String message, Object data) {
-        this.setStatus(status);
-        this.setMessage(message);
-        this.data = data;
-    }
+  // ////////////////////////////////////////////////////////////////////////////////////
+  //
+  // Constructors
+  //
+  // ////////////////////////////////////////////////////////////////////////////////////
+  public DataResponse(int status, String message, Object data) {
+    this.setStatus(status);
+    this.setMessage(message);
+    this.data = data;
+  }
 
-    public DataResponse(Object data) {
-        this.data = data;
-    }
+  public DataResponse(Object data) {
+    this.data = data;
+  }
 
-    public DataResponse(String message, Object data) {
-        this.setMessage(message);
-        this.data = data;
-    }
+  public DataResponse(String message, Object data) {
+    this.setMessage(message);
+    this.data = data;
+  }
 
 }

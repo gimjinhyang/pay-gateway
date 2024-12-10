@@ -1,0 +1,4 @@
+token:
+  url: http://localhost:1002
+  api-card: /api/card
+  api-token: /api/token
