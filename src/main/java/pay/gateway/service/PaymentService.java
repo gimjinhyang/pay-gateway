@@ -3,8 +3,8 @@ package pay.gateway.service;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
-import pay.gateway.request.CardRequest;
 import pay.gateway.request.PayRequest;
+import pay.gateway.thirdparty.token.request.CardRequest;
 import pay.gateway.thirdparty.token.request.TokenRequest;
 import pay.gateway.thirdparty.token.service.TokenService;
 

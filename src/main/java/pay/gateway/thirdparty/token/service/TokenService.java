@@ -12,7 +12,7 @@ import pay.gateway.thirdparty.token.request.TokenRequest;
 import pay.gateway.thirdparty.token.response.TokenResponse;
 
 /**
- * 토큰 서비스
+ * 토큰 발급 서비스
  *
  * @author Jinhyang
  */
@@ -30,7 +30,7 @@ public class TokenService {
    */
   public String entry(TokenRequest param) {
 
-    final String uri = makeEntryUri();
+    final String uri = makeUri();
     final RestClient restClient = RestClient.create();
 
     // 카드 등록 요청
@@ -52,7 +52,7 @@ public class TokenService {
    *
    * @return
    */
-  private String makeEntryUri() {
+  private String makeUri() {
     return StringUtils.join(tokenProperties.getUrl(), tokenProperties.getApiToken());
   }
 
@@ -63,7 +63,7 @@ public class TokenService {
    */
   private void verifyError(ResponseEntity<TokenResponse> response) {
     if (response.getBody() == null) {
-      throw new IllegalStateException("카드 등록을 실패 했습니다.");
+      throw new IllegalStateException("토큰 발급을 실패 했습니다.");
     }
     if (!response.getStatusCode().is2xxSuccessful() || response.getBody().getStatus() != 200) {
       throw new IllegalStateException(response.getBody().getMessage());

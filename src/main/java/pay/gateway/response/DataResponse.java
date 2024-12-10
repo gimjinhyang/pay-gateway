@@ -20,7 +20,7 @@ import lombok.ToString;
 public class DataResponse extends AbstractEntity {
 
   @Serial
-  private static final long serialVersionUID = -2805535386429645972L;
+  private static final long serialVersionUID = 4851686505510219977L;
 
   /**
    * 데이터
@@ -32,19 +32,10 @@ public class DataResponse extends AbstractEntity {
   // Constructors
   //
   // ////////////////////////////////////////////////////////////////////////////////////
-  public DataResponse(int status, String message, Object data) {
-    this.setStatus(status);
-    this.setMessage(message);
-    this.data = data;
-  }
 
   public DataResponse(Object data) {
     this.data = data;
   }
 
-  public DataResponse(String message, Object data) {
-    this.setMessage(message);
-    this.data = data;
-  }
 
 }

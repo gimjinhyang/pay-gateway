@@ -39,10 +39,10 @@ public class PayController {
 
     } catch (IllegalStateException e) {
       log.warn("caught a " + e.getClass() + " with message: " + e.getMessage(), e);
-      return ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage()));
+      return ResponseEntity.ok(new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage()));
     } catch (Exception e) {
       log.warn("caught a " + e.getClass() + " with message: " + e.getMessage(), e);
-      return ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.BAD_REQUEST, "결제를 실패했습니다"));
+      return ResponseEntity.ok(new ErrorResponse(HttpStatus.BAD_REQUEST, "결제를 실패했습니다"));
     }
   }
 

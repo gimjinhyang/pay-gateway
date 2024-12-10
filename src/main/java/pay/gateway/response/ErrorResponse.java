@@ -21,15 +21,15 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ErrorResponse {
 
-    @JsonProperty("status")
-    private int status = HttpStatus.NOT_FOUND.value();
+  @JsonProperty("status")
+  private int status = HttpStatus.NOT_FOUND.value();
 
-    @JsonProperty("message")
-    private String message;
+  @JsonProperty("message")
+  private String message;
 
-    public ErrorResponse(HttpStatus status, String message) {
-        this.status = status.value();
-        this.message = message;
-    }
+  public ErrorResponse(HttpStatus status, String message) {
+    this.status = status.value();
+    this.message = message;
+  }
 
 }

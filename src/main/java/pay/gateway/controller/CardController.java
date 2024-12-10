@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pay.gateway.request.CardRequest;
 import pay.gateway.response.DataResponse;
 import pay.gateway.response.ErrorResponse;
+import pay.gateway.thirdparty.token.request.CardRequest;
 import pay.gateway.thirdparty.token.service.CardService;
 
 /**
@@ -42,10 +42,10 @@ public class CardController {
 
     } catch (IllegalStateException e) {
       log.warn("caught a " + e.getClass() + " with message: " + e.getMessage(), e);
-      return ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage()));
+      return ResponseEntity.ok(new ErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage()));
     } catch (Exception e) {
       log.warn("caught a " + e.getClass() + " with message: " + e.getMessage(), e);
-      return ResponseEntity.badRequest().body(new ErrorResponse(HttpStatus.BAD_REQUEST, "카드 등록을 실패했습니다"));
+      return ResponseEntity.ok(new ErrorResponse(HttpStatus.BAD_REQUEST, "카드 등록을 실패했습니다"));
     }
   }
 

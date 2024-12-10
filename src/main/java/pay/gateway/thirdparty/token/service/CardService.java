@@ -8,11 +8,11 @@ import org.springframework.web.client.RestClient;
 
 import lombok.RequiredArgsConstructor;
 import pay.gateway.properties.TokenProperties;
-import pay.gateway.request.CardRequest;
+import pay.gateway.thirdparty.token.request.CardRequest;
 import pay.gateway.thirdparty.token.response.CardResponse;
 
 /**
- * 카드 서비스
+ * 카드 등록 서비스
  *
  * @author Jinhyang
  */
@@ -30,7 +30,7 @@ public class CardService {
    */
   public Long entry(CardRequest param) {
 
-    final String uri = makeEntryUri();
+    final String uri = makeUri();
     final RestClient restClient = RestClient.create();
 
     // 카드 등록 요청
@@ -52,7 +52,7 @@ public class CardService {
    *
    * @return
    */
-  private String makeEntryUri() {
+  private String makeUri() {
     return StringUtils.join(tokenProperties.getUrl(), tokenProperties.getApiCard());
   }
 
