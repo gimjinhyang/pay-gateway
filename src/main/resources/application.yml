@@ -1,0 +1,21 @@
+# SPRING APPLICATION
+spring:
+  application:
+    name: Pay Gateway API
+  config:
+    name: application
+  profiles:
+    include:
+      - token
+
+# EMBEDDED SERVER
+server:
+  port: 9091
+  tomcat:
+    max-threads: 0
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      force: true
+
+
